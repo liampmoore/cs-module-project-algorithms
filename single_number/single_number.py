@@ -5,7 +5,21 @@ Returns: an integer
 def single_number(arr):
     # Your code here
 
-    pass
+    # create a map
+    num_map = {}
+
+    # loop through the input array
+    for num in arr:
+        # increment occurences of given value to the corresponding key on the map
+        if num in num_map:
+            num_map[num] += 1
+        else:
+            num_map[num] = 1
+    # loop through the map
+    for key in num_map:
+        # if count is one return the key
+        if num_map[key] == 1:
+            return key
 
 
 if __name__ == '__main__':
