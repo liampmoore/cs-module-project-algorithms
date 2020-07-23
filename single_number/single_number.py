@@ -8,14 +8,14 @@ def single_number(arr):
     # create a map
     num_map = {}
 
-    # loop through the input array
+    # loop through the input array O(n)
     for num in arr:
         # increment occurences of given value to the corresponding key on the map
         if num in num_map:
             num_map[num] += 1
         else:
             num_map[num] = 1
-    # loop through the map
+    # loop through the map (O(n) - 1) /2
     for key in num_map:
         # if count is one return the key
         if num_map[key] == 1:
