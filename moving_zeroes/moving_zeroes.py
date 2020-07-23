@@ -2,6 +2,17 @@
 Input: a List of integers
 Returns: a List of integers
 '''
+
+# Naive solution using list comprehensions
+# def moving_zeroes(arr):
+#     nonzeroes = [num for num in arr if num != 0]
+#     for i in range(len(arr)):
+#         if i < len(nonzeroes):
+#             arr[i] = nonzeroes[i]
+#         else:
+#             arr[i] = 0
+#     return arr
+
 def moving_zeroes(arr):
     # Your code here
     # Create a variable to save the first zero, O(1) space
