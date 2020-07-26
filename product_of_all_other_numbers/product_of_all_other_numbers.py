@@ -20,8 +20,6 @@ Returns: a List of integers
 
 
 def product_of_all_other_numbers(arr):
-    print('\nstart\n')
-
 
     # Create an array to hold products of all numbers to left of i
     left = [0] * len(arr)
@@ -36,7 +34,6 @@ def product_of_all_other_numbers(arr):
             left[index] = arr[index - 1] * arr[index - 2]
         else:
             left[index] = arr[index - 1] * left[index - 1]
-    print('left', left, '\n')
 
     # Create an array to hold all products of numbers to the right of i
     right = [0] * len(arr)
@@ -50,8 +47,6 @@ def product_of_all_other_numbers(arr):
             right[index] = arr[index + 1] * arr[index + 2]
         else:
             right[index] = arr[index + 1] * right[index + 1]
-        
-    print('right', right)
 
     # Create an array to hold all the output products, space O(n)
     products = [0] * len(arr)
