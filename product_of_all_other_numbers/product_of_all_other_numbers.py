@@ -60,9 +60,6 @@ def product_of_all_other_numbers(arr):
 
     return products
 
-    # Couldn't complete the solution with no division in sufficient time.
-    # The error was with debugging and reverse indexing, spent too much time on this one and got worn out.
-
 
 if __name__ == '__main__':
     # Use the main function to test your implementation
