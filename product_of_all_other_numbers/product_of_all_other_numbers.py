@@ -20,37 +20,48 @@ Returns: a List of integers
 
 
 def product_of_all_other_numbers(arr):
+    print('\nstart\n')
 
 
     # Create an array to hold products of all numbers to left of i
     left = [0] * len(arr)
+    # Loop through arr to populate array containing the product of all values to the left of the value n. O(n) speed
+    for index in range(len(arr)):
+        # If the index is zero, there are no numbers to the left so it is None
+        if index == 0:
+            left[index] = None
+        elif index == 1:
+            left[index] = arr[index - 1]
+        elif index == 2:
+            left[index] = arr[index - 1] * arr[index - 2]
+        else:
+            left[index] = arr[index - 1] * left[index - 1]
+    print('left', left, '\n')
+
     # Create an array to hold all products of numbers to the right of i
     right = [0] * len(arr)
-
-    # Loop through arr to populate left O(n) speed
-    for index, value in enumerate(arr):
-        # If the index is zero, we need that first value to simply be the first value
-        if index == 0:
-            left[index] = value
-        else:
-            left[index] = value * left[index - 1]
     # Loop through arr to populate right O(n) speed, going from right to left
-    for index in range(1, len(arr)):
-        if index == 1:
-            right[-1] = arr[-1]
+    for index in reversed(range(len(arr))):
+        if index == len(arr) - 1:
+            right[index] = None
+        elif index == len(arr) - 2:
+            right[index] = arr[index + 1]
+        elif index == len(arr) - 3:
+            right[index] = arr[index + 1] * arr[index + 2]
         else:
-            right[index * -1] = value * right[(index * -1) + 1]
-        print(index, right[index])
+            right[index] = arr[index + 1] * right[index + 1]
+        
+    print('right', right)
 
     # Create an array to hold all the output products, space O(n)
     products = [0] * len(arr)
-    for i in range(len(products)):
+    for index in range(len(products)):
         if index == 0:
-            products[i] == right[i]
+            products[index] = right[index]
         elif index == len(arr) - 1:
-            products[i] == left[i]
+            products[index] = left[index]
         else:
-            products[i] = left[i] * right[i]
+            products[index] = left[index] * right[index]
 
     return products
 
